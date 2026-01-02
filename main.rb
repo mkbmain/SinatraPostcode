@@ -20,7 +20,7 @@ class PostCode < ActiveRecord::Base
 
   # Validations
   validates :postcode, presence: true
-  validates :latitude, presence: true, uniqueness: true
+  validates :latitude, presence: true, uniqueness: false
   validates :longitude, presence: false, uniqueness: false
   validates :source_id, presence: false, uniqueness: false
 end
