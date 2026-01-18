@@ -24,6 +24,9 @@ class PostCode < ActiveRecord::Base
   validates :source_id, presence: false, uniqueness: false
 end
 
+get '/' do
+  'Rest Api'
+end
 
 get '/Postcode/:postcode' do
   postcode = params[:postcode].downcase.delete(' ')
