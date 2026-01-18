@@ -1,0 +1,7 @@
+gem 'activerecord'
+gem 'postgresql'
+gem 'sinatra'
+gem 'rackup'
+gem 'puma'
+gem 'unicode_utils'
+gem 'env'
