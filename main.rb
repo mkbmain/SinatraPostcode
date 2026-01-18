@@ -18,8 +18,6 @@ end
 
 class PostCode < ActiveRecord::Base
   self.table_name = "postcode_location"
-
-  # Validations
   validates :postcode, presence: true
   validates :latitude, presence: true, uniqueness: false
   validates :longitude, presence: false, uniqueness: false
@@ -42,5 +40,6 @@ ActiveRecord::Base.establish_connection(
   port: 26257,
   database: 'defaultdb',
   username: 'PostCodeUser',
-  password: '',
+  password: ENV["PostgresPostCodeUserKey"]
 )
+
