@@ -6,10 +6,11 @@ require 'json'
 require 'unicode_utils'
 
 class Response
-  attr_reader :postcode, :longitude, :latitude
+  attr_reader :postcode, :longitude, :latitude, :standard_postcode
 
-  def initialize(postcode, long, lat)
+  def initialize(postcode, standard_postcode, long, lat)
     @postcode = postcode
+    @standard_postcode = standard_postcode
     @longitude = long
     @latitude = lat
   end
@@ -32,7 +33,7 @@ get '/Postcode/:postcode' do
   if record.nil?
     return not_found
   end
-  return Response.new(record.postcode, record.longitude, record.latitude).to_json
+  return Response.new(params[:postcode],record.postcode, record.longitude, record.latitude).to_json
 end
 
 ActiveRecord::Base.establish_connection(
