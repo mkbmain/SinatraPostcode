@@ -39,10 +39,10 @@ end
 
 ActiveRecord::Base.establish_connection(
   adapter: 'postgresql',
-  host: 'postcodedb-4667.6zw.aws-eu-west-1.cockroachlabs.cloud',
-  port: 26257,
-  database: 'defaultdb',
-  username: 'PostCodeUser',
+  host: ENV["PostgresPostCodeDbHost"],
+  port: ENV["PostgresPostCodeDbPort"],
+  database: ENV["PostgresPostCodeDbName"],
+  username: ENV["PostgresPostCodeUser"],
   password: ENV["PostgresPostCodeUserKey"]
 )
 
