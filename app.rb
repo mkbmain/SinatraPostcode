@@ -21,7 +21,6 @@ class PostCode < ActiveRecord::Base
   validates :postcode, presence: true
   validates :latitude, presence: true, uniqueness: false
   validates :longitude, presence: false, uniqueness: false
-  validates :source_id, presence: false, uniqueness: false
 end
 
 get '/' do
@@ -34,7 +33,7 @@ get '/Postcode/:postcode' do
   if record.nil?
     return not_found
   end
-  return Response.new(params[:postcode],record.postcode, record.longitude, record.latitude).to_json
+    Response.new(params[:postcode], record.postcode, record.longitude, record.latitude).to_json
 end
 
 ActiveRecord::Base.establish_connection(
